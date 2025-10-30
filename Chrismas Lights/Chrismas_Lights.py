@@ -6,20 +6,21 @@ while i < 1000:
     sublist = []
     j = 0
     while j < 1000:
-        sublist.append(False)
+        sublist.append(0)
         j+=1
     i+=1
 
     lights.append(sublist)
 
 def TurnOn(x, y):
-    lights[x][y] = True
+    lights[x][y] += 1
 
 def TurnOff(x, y):
-    lights[x][y] = False
+    if lights[x][y] > 0:
+        lights[x][y] -= 1
 
 def Toggle(x,y):
-    lights[x][y] = not lights[x][y]
+    lights[x][y] += 2
 
 def TurnOnRange(xStart, yStart, xEnd, yEnd):
     while xStart < xEnd:
@@ -51,11 +52,10 @@ def CountLightsOn():
     while(i < 1000):
         j = 0
         while (j < 1000):
-            if lights[i][j] == True:
-                amount+=1
+            amount+= lights[i][j]
             j+=1
         i+=1
-    print("There are " + str(amount) + "lights turned on.")
+    print("Total brightness is : " + str(amount) + ".")
 
 start = input("Welcome to Santa's lights controller, press any key to start.")
 

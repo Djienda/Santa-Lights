@@ -22,7 +22,6 @@ def Toggle(x,y):
     lights[x][y] = not lights[x][y]
 
 def TurnOnRange(xStart, yStart, xEnd, yEnd):
-    print("Turn on lights " + str(xStart) + "," + str(yStart) + " to " + str(xEnd) + "," + str(yEnd))
     while xStart < xEnd:
         currentY = yStart
         while currentY < yEnd:
@@ -56,7 +55,7 @@ def CountLightsOn():
                 amount+=1
             j+=1
         i+=1
-    print("There are " + str(amount) + " lights turned on.")
+    print("There are " + str(amount) + "lights turned on.")
 
 start = input("Welcome to Santa's lights controller, press any key to start.")
 
